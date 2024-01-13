@@ -1,0 +1,108 @@
+body {
+    background-color: #FAFAFA;
+}
+
+.container {
+    display: flex;
+}
+
+img {
+    height: 250px;
+    margin: 10px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    float: left;
+}
+
+.container-book {
+    display: flex;
+    align-items: center;
+}
+
+button svg {
+    margin-right: 5px;
+}
+
+.rotate-icon {
+    transition: transform 0.3s ease;
+}
+  
+.rotate-icon.rotate {
+    transform: rotate(90deg);
+}
+
+.div1 {
+    width: 50%;
+    padding-top: 30px;
+    padding-left: 20px;
+    background-color: #FAFAFA;
+}
+
+.div2 {
+    width: 50%;
+    padding-left: 20px;
+    padding-top:60px;
+    background-color: #FAFAFA;
+    /* background-color: #CD8D7A; */
+    border-color: black;
+    border-radius: o;
+    border-left: 2px ridge;
+}
+
+h1, button, li>div>ul>li, .mb-1 {
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1 {
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+form {
+    margin-bottom: 15px;
+}
+
+.btn-m {
+    font-weight: 500;
+}
+
+#topicInput::placeholder {
+    font-family: 'Quicksand', sans-serif;
+}
+
+#topicInput {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 0;
+}
+
+.font-j {
+    text-transform: uppercase;
+}
+
+.bold, h2 {
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.li {
+    margin: 3px;
+    font-family: unset;   
+    text-transform: capitalize;
+}
+
+@keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+  
+  .blink-animation {
+    animation: blink 1s infinite; /* You can adjust the duration as needed */
+  }

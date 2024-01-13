@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab&family=Quicksand:wght@300;700&family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Book Finder</title>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="div1">
+      <h1>Bare Books...!</h1>
+
+      <form id="topic-form" action="/get-book">
+        <input type="text" name="topic" id="topicInput" placeholder="Select a category...">
+        <input type="submit" value="Select"> 
+      </form>
+
+
+      <div class="flex-shrink-0 p-3" style="width: 280px;">
+        <a class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
+          <span class="fs-5 fw-semibold">
+            Categories
+          </span>
+        </a>
+
+        <ul class="list-unstyled ps-0">
+
+
+          <li class="mb-1">
+            <button class="btn-m btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#fiction-collapse" aria-expanded="false" onclick="toggleIconRotation(this)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="14" fill="currentColor" class="bi bi-caret-right-fill rotate-icon" viewBox="0 0 16 16">
+                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+              </svg>
+              Fiction
+            </button>
+            <div class="collapse" id="fiction-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Fantasy', this)">Fantasy</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Historical Fiction', this)">Historical Fiction</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Horror', this)">Horror</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Humor', this)">Humor</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Literature', this)">Literature</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Magic', this)">Magic</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Mystery and Detective', this)">Mystery and Detective</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Plays', this)">Plays</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Poetry', this)">Poetry</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Romance', this)">Romance</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Science Fiction', this)">Science Fiction</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Short Stories', this)">Short Stories</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Thriller', this)">Thriller</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Young Adult', this)">Young Adult</button></li>
+              </ul>
+            </div>
+          </li>
+
+
+          <li class="mb-1">
+            <button class="btn-m btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#biography-collapse" aria-expanded="false" onclick="toggleIconRotation(this)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="14" fill="currentColor" class="bi bi-caret-right-fill rotate-icon" viewBox="0 0 16 16">
+                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+              </svg>
+              Biography
+            </button>
+            <div class="collapse" id="biography-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Autobiographies', this)">Autobiographies</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('History', this)">History</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Politics and Government', this)">Politics and Government</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('World War II', this)">World War II</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Women', this)">Women</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Kings and Rulers', this)">Kings and Rulers</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Composers', this)">Composers</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Artists', this)">Artists</button></li>
+              </ul>
+            </div>
+          </li>
+
+
+          <li class="mb-1">
+            <button class="btn-m btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#history-collapse" aria-expanded="false" onclick="toggleIconRotation(this)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="14" fill="currentColor" class="bi bi-caret-right-fill rotate-icon" viewBox="0 0 16 16">
+                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+              </svg>
+              History
+            </button>
+            <div class="collapse" id="history-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Ancient Civilization', this)">Ancient Civilization</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Archaeology', this)">Archaeology</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Anthropology', this)">Anthropology</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('World War II', this)">World War II</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Social Life and Customs', this)">Social Life and Customs</button></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="mb-1">
+            <button class="btn-m btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#arts-collapse" aria-expanded="false" onclick="toggleIconRotation(this)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="14" fill="currentColor" class="bi bi-caret-right-fill rotate-icon" viewBox="0 0 16 16">
+                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+              </svg>
+              Arts
+            </button>
+            <div class="collapse" id="arts-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Architecture', this)">Architecture</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Art Instruction', this)">Art Instruction</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Art History', this)">Art History</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Dance', this)">Dance</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Design', this)">Design</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Fashion', this)">Fashion</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Film', this)">Film</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Graphic Design', this)">Graphic Design</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Music', this)">Music</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Music Theory', this)">Music Theory</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Painting', this)">Painting</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Photography', this)">Photography</button></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="mb-1">
+            <button class="btn-m btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#ss-collapse" aria-expanded="false" onclick="toggleIconRotation(this)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="14" fill="currentColor" class="bi bi-caret-right-fill rotate-icon" viewBox="0 0 16 16">
+                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+              </svg>
+              Social Sciences
+            </button>
+            <div class="collapse" id="ss-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Anthropology', this)">Anthropology</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Religion', this)">Religion</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Political Science', this)">Political Science</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Psychology', this)">Psychology</button></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="mb-1">
+            <button class="btn-m btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#sm-collapse" aria-expanded="false" onclick="toggleIconRotation(this)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="14" fill="currentColor" class="bi bi-caret-right-fill rotate-icon" viewBox="0 0 16 16">
+                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+              </svg>
+              Science and Mathematics
+            </button>
+            <div class="collapse" id="sm-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Biology', this)">Biology</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Chemistry', this)">Chemistry</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Mathematics', this)">Mathematics</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Physics', this)">Physics</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Programming', this)">Programming</button></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="mb-1">
+            <button class="btn-m btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#bf-collapse" aria-expanded="false" onclick="toggleIconRotation(this)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="14" fill="currentColor" class="bi bi-caret-right-fill rotate-icon" viewBox="0 0 16 16">
+                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+              </svg>
+              Business and Finance
+            </button>
+            <div class="collapse" id="bf-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Management', this)">Management</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Enterpreneurship', this)">Enterpreneurship</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Business Economics', this)">Business Economics</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Business Success', this)">Business Success</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Finance', this)">Finance</button></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="mb-1">
+            <button class="btn-m btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#hw-collapse" aria-expanded="false" onclick="toggleIconRotation(this)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="14" fill="currentColor" class="bi bi-caret-right-fill rotate-icon" viewBox="0 0 16 16">
+                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+              </svg>
+              Health and Wellness
+            </button>
+            <div class="collapse" id="hw-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Cooking', this)">Cooking</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Cookbooks', this)">Cookbooks</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Mental Health', this)">Mental Health</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Exercise', this)">Exercise</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Nutrition', this)">Nutrition</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Self-help', this)">Self-help</button></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="mb-1">
+            <button class="btn-m btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#chil-collapse" aria-expanded="false" onclick="toggleIconRotation(this)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="14" fill="currentColor" class="bi bi-caret-right-fill rotate-icon" viewBox="0 0 16 16">
+                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+              </svg>
+              Children's
+            </button>
+            <div class="collapse" id="chil-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Kids Books', this)">Kids Books</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Stories in Rhyme', this)">Stories in Rhyme</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Baby Books', this)">Baby Books</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Bedtime Books', this)">Bedtime Books</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Picture Books', this)">Picture Books</button></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="mb-1">
+            <button class="btn-m btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#animals-collapse" aria-expanded="false" onclick="toggleIconRotation(this)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="14" fill="currentColor" class="bi bi-caret-right-fill rotate-icon" viewBox="0 0 16 16">
+                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+              </svg>
+              Animals
+            </button>
+            <div class="collapse" id="animals-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Bears', this)">Bears</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Cats', this)">Cats</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Kittens', this)">Kittens</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Dogs', this)">Dogs</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Puppies', this)">Puppies</button></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="mb-1">
+            <button class="btn-m btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#places-collapse" aria-expanded="false" onclick="toggleIconRotation(this)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="14" fill="currentColor" class="bi bi-caret-right-fill rotate-icon" viewBox="0 0 16 16">
+                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+              </svg>
+              Places
+            </button>
+            <div class="collapse" id="places-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Brazil', this)">Brazil</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('India', this)">India</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Indonesia', this)">Indonesia</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('United States', this)">United States</button></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="mb-1">
+            <button class="btn-m btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#textb-collapse" aria-expanded="false" onclick="toggleIconRotation(this)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="14" fill="currentColor" class="bi bi-caret-right-fill rotate-icon" viewBox="0 0 16 16">
+                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+              </svg>
+              Textbooks
+            </button>
+            <div class="collapse" id="textb-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('History', this)">History</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Mathematics', this)">Mathematics</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Geography', this)">Geography</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Psychology', this)">Psychology</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Algebra', this)">Algebra</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Education', this)">Education</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Business and Economics', this)">Business and Economics</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Science', this)">Science</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Chemistry', this)">Chemistry</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('English Language', this)">English Language</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Physics', this)">Physics</button></li>
+                <li><button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" onclick="setTopic('Computer Science', this)">Computer Science</button></li>
+              </ul>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+
+
+    </div>
+
+    <div class="div2 vertical-border">
+
+      <% if (typeof title !== 'undefined' && title) { %>
+
+        <h2 class="rt font-j">Here's a random <%= topic %> book:</h2>
+
+        <div class="container-book">
+          <img src=<%= img_URL %>>
+        <div class="div-float-right">
+          <p class="bold"><%= title %></p>
+          <p><%= author %></p>
+        </div>
+        </div>
+        <p class="font-j">All Categories: 
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <% for (cat in subjects) {%>
+              <li class="font-j li"> <%= subjects[cat] %> </li>
+            <% } %>
+          </ul>
+          
+        </p>
+        
+      <% } %>
+
+    </div>
+    
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  
+  <script>
+
+    function setTopic(topic, button) {
+      document.getElementById('topicInput').value = topic;
+
+      button.classList.add('blink-animation');
+  
+      setTimeout(() => {
+        button.classList.remove('blink-animation');
+      }, 300); 
+    }
+  
+    function toggleIconRotation(button) {
+      const icon = button.querySelector('svg');
+      const isExpanded = button.getAttribute('aria-expanded') === 'true' || false;
+  
+      if (isExpanded) {
+        icon.style.transform = 'rotate(90deg)';
+      } else {
+        icon.style.transform = 'rotate(0deg)';
+      } 
+    }
+
+
+  </script>
+
+</body>
+</html>
